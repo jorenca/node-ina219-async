@@ -1,11 +1,30 @@
 {
   "name": "ina219-async",
   "version": "1.0.0",
-  "description": "An async version of node-ina219, along with some improvements.'",
+  "description": "Node.js INA219 driver for Adafruit INA219 High Side DC Current Sensor using promises",
   "main": "ina219-async.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "georgi.gaydarov",
-  "license": "MIT"
+  "author": "Georgi Gaydarov",
+  "license": "MIT",
+  "dependencies": {
+    "i2c-bus": "^4.0.10"
+  },
+  "keywords": [
+    "raspberry",
+    "pi",
+    "adafruit",
+    "voltage",
+    "current",
+    "monitor",
+    "ina219",
+    "i2c-bus",
+    "i2c",
+    "promise"
+  ],
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/jorenca/node-ina219-async"
+  }
 }
