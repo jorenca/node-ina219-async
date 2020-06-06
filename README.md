@@ -1,6 +1,7 @@
 # node-ina219-async
 Node.js Driver for INA219 current sensing module.
 Returns promises for easier operation chaining.
+This library supports having multiple sensors connected.
 
 Based on the [ina219 node module](https://www.npmjs.com/package/ina219), which in turn is based on [Adafruit's INA219 library](https://github.com/adafruit/Adafruit_INA219).
 
@@ -15,13 +16,29 @@ $ npm install ina219-async
 
 ```javascript
 
-  var ina219 = require('ina219-async')();
+  const ina219 = require('ina219-async')();
   await ina219.calibrate32V2A();
   const volts = await ina219.getBusVoltage_V();
   console.log("Voltage: " + volts);
   const current = await ina219.getCurrent_mA();
   console.log("Current (mA): " + current);
 ```
+
+```javascript
+
+  const Ina219Board = require('ina219-async');
+
+  const bus1 = Ina219Board(0x40, 1);
+  await bus1.calibrate32V2A();
+
+  const bus2 = Ina219Board(0x42, 1);
+  await bus2.calibrate32V1A();
+
+  const volts1 = await bus1.getBusVoltage_V();
+  const volts2 = await bus2.getBusVoltage_V();
+  console.log("Voltage:", volts1, volts2);
+```
+
 
 
 ## Methods
@@ -36,9 +53,9 @@ $ npm install ina219-async
 
 ### init
 The initialization function is the single export from this Node module.
-Takes (address, device) as parameters.
-If no parameters are passed, address `0x40` and device `1` is assumed.
-Called to initilize the INA219 board, you call calibrate after this.
+Takes `module i2c address` and `i2c bus device` as parameters.
+If no specified, address `0x40` and device `1` is assumed.
+Make sure to call one of the calibrate methods after calling this.
 
 Returns the ina219 object used for querying readings.
 
