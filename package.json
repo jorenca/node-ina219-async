@@ -1,0 +1,11 @@
+{
+  "name": "ina219-async",
+  "version": "1.0.0",
+  "description": "An async version of node-ina219, along with some improvements.'",
+  "main": "ina219-async.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "georgi.gaydarov",
+  "license": "MIT"
+}
