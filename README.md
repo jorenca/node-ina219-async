@@ -12,6 +12,7 @@ $ npm install ina219-async
 ````
 
 ##Usage
+
 ```javascript
 
   var ina219 = require('ina219-async')();
