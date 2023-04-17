@@ -1,6 +1,6 @@
 {
   "name": "ina219-async",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Node.js INA219 driver for Adafruit INA219 High Side DC Current Sensor using promises",
   "main": "ina219-async.js",
   "scripts": {
