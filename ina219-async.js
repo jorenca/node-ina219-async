@@ -306,6 +306,10 @@ module.exports = (address = INA219_ADDRESS, busNumber = 1) => {
   	// value even if it's an unfortunate extra step
     getCurrent_mA: async () => writeRegister(INA219_REG_CALIBRATION, calValue)
         .then(() => readRegister(INA219_REG_CURRENT))
-        .then(value => value / currentDivider_mA)
+        .then(value => value / currentDivider_mA),
+    /**
+     * Closes the underlying i2c bus object to free resources
+     */
+    closeSync: () => wire.closeSync()
   };
 };
